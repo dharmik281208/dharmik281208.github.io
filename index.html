@@ -22,11 +22,14 @@
     <div class="bg-spotlight" id="spotlight"></div>
   </div>
 
+  <!-- Mobile menu backdrop -->
+  <div class="menu-backdrop" id="menuBackdrop" hidden></div>
+
   <!-- Top Nav -->
   <header class="topbar">
     <div class="container topbar-inner">
       <a class="logo" href="#home" aria-label="Dharmik Labs home">
-        <span class="logo-text">Dharmik <span>LABs</span></span>
+        <span class="logo-text">Dharmik <span>Labs</span></span>
       </a>
 
       <nav class="nav" aria-label="Primary">
@@ -41,20 +44,23 @@
 
       <a class="nav-cta" href="#contact">Contact</a>
 
-      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobileNav">
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileNav">
         <span class="sr-only">Open menu</span>
         <span class="menu-lines" aria-hidden="true"></span>
       </button>
     </div>
 
-    <div id="mobileNav" class="mobile-nav container" hidden>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#timeline">Timeline</a>
-      <a href="#certificates">Certificates</a>
-      <a href="#contact" class="nav-cta nav-cta-mobile">Contact</a>
+    <!-- Mobile menu overlay panel -->
+    <div id="mobileNav" class="mobile-nav" hidden>
+      <div class="mobile-nav-card">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#contact" class="nav-cta nav-cta-mobile">Contact</a>
+      </div>
     </div>
   </header>
 
@@ -117,7 +123,6 @@
 
       <section class="hero-right reveal reveal-right" aria-label="Hero image">
         <div class="frame">
-          <!-- Your photo in the same folder as index.html -->
           <img src="profile.png" alt="Dharmik Suhagiya photo" />
           <span class="frame-pill frame-pill-1" aria-hidden="true"></span>
           <span class="frame-pill frame-pill-2" aria-hidden="true"></span>
@@ -268,26 +273,6 @@
         <article class="card">
           <h3>Achievements</h3>
           <p class="muted">Add CTF rankings, badges, or event participation.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="faq" class="section section-alt">
-    <div class="container reveal">
-      <h2>FAQ</h2>
-      <div class="cards stagger">
-        <article class="card">
-          <h3>Are you available for projects?</h3>
-          <p class="muted">Yes — I’m open to learning-focused collaborations.</p>
-        </article>
-        <article class="card">
-          <h3>What do you want to learn next?</h3>
-          <p class="muted">Web security, forensics workflows, and robotics autonomy.</p>
-        </article>
-        <article class="card">
-          <h3>How can I contact you?</h3>
-          <p class="muted">Use the form below or email me directly.</p>
         </article>
       </div>
     </div>
