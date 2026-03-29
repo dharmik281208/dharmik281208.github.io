@@ -1,32 +1,56 @@
 const year = document.getElementById("year");
 if (year) year.textContent = new Date().getFullYear();
 
-const btn = document.querySelector(".menu-btn");
+const btn = document.getElementById("menuBtn") || document.querySelector(".menu-btn");
 const mobile = document.getElementById("mobileNav");
+const backdrop = document.getElementById("menuBackdrop");
 
 function isMobile() {
   return window.matchMedia("(max-width: 980px)").matches;
 }
 
-function closeMobile() {
-  if (!mobile) return;
-  mobile.setAttribute("hidden", "");
-  if (btn) btn.setAttribute("aria-expanded", "false");
+function setMenuOpen(open) {
+  if (!mobile || !btn || !backdrop) return;
+
+  if (open) {
+    mobile.removeAttribute("hidden");
+    backdrop.removeAttribute("hidden");
+    btn.setAttribute("aria-expanded", "true");
+    document.body.classList.add("menu-open");
+  } else {
+    mobile.setAttribute("hidden", "");
+    backdrop.setAttribute("hidden", "");
+    btn.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("menu-open");
+  }
 }
 
-if (btn && mobile) {
-  closeMobile();
+function toggleMenu() {
+  if (!isMobile()) return;
+  const isHidden = mobile?.hasAttribute("hidden");
+  setMenuOpen(Boolean(isHidden));
+}
 
-  btn.addEventListener("click", () => {
-    if (!isMobile()) return;
-    const isHidden = mobile.hasAttribute("hidden");
-    if (isHidden) mobile.removeAttribute("hidden");
-    else mobile.setAttribute("hidden", "");
-    btn.setAttribute("aria-expanded", String(isHidden));
+if (btn && mobile && backdrop) {
+  setMenuOpen(false);
+
+  btn.addEventListener("click", toggleMenu);
+
+  backdrop.addEventListener("click", () => setMenuOpen(false));
+
+  // close on escape
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setMenuOpen(false);
   });
 
+  // close on link click
+  mobile.querySelectorAll("a").forEach(a => {
+    a.addEventListener("click", () => setMenuOpen(false));
+  });
+
+  // if rotated to desktop, close menu
   window.addEventListener("resize", () => {
-    if (!isMobile()) closeMobile();
+    if (!isMobile()) setMenuOpen(false);
   });
 }
 
