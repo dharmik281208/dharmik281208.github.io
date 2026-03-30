@@ -38,24 +38,21 @@ if (btn && mobile && backdrop) {
 
   backdrop.addEventListener("click", () => setMenuOpen(false));
 
-  // close on escape
   window.addEventListener("keydown", (e) => {
     if (e.key === "Escape") setMenuOpen(false);
   });
 
-  // close on link click
   mobile.querySelectorAll("a").forEach(a => {
     a.addEventListener("click", () => setMenuOpen(false));
   });
 
-  // if rotated to desktop, close menu
   window.addEventListener("resize", () => {
     if (!isMobile()) setMenuOpen(false);
   });
 }
 
 /* active nav link on scroll */
-const sections = ["home","about","skills","projects","timeline","certificates","contact"]
+const sections = ["home","about","skills","projects","lab","certificates","blog","contact"]
   .map(id => document.getElementById(id))
   .filter(Boolean);
 
