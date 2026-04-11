@@ -1,151 +1,121 @@
-const year = document.getElementById("year");
-if (year) year.textContent = new Date().getFullYear();
-
-const btn = document.getElementById("menuBtn") || document.querySelector(".menu-btn");
-const mobile = document.getElementById("mobileNav");
-const backdrop = document.getElementById("menuBackdrop");
-
-function isMobile() {
-  return window.matchMedia("(max-width: 980px)").matches;
+// Year in footer
+const yearElement = document.getElementById('year');
+if (yearElement) {
+  yearElement.textContent = new Date().getFullYear();
 }
 
-function setMenuOpen(open) {
-  if (!mobile || !btn || !backdrop) return;
+// Mobile menu toggle
+const menuBtn = document.getElementById('menuBtn');
+const mobileNav = document.getElementById('mobileNav');
+const menuBackdrop = document.getElementById('menuBackdrop');
 
-  if (open) {
-    mobile.removeAttribute("hidden");
-    backdrop.removeAttribute("hidden");
-    btn.setAttribute("aria-expanded", "true");
-    document.body.classList.add("menu-open");
-  } else {
-    mobile.setAttribute("hidden", "");
-    backdrop.setAttribute("hidden", "");
-    btn.setAttribute("aria-expanded", "false");
-    document.body.classList.remove("menu-open");
-  }
-}
-
-function toggleMenu() {
-  if (!isMobile()) return;
-  const isHidden = mobile?.hasAttribute("hidden");
-  setMenuOpen(Boolean(isHidden));
-}
-
-if (btn && mobile && backdrop) {
-  setMenuOpen(false);
-
-  btn.addEventListener("click", toggleMenu);
-
-  backdrop.addEventListener("click", () => setMenuOpen(false));
-
-  window.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") setMenuOpen(false);
+if (menuBtn && mobileNav) {
+  menuBtn.addEventListener('click', () => {
+    const isHidden = mobileNav.hasAttribute('hidden');
+    
+    if (isHidden) {
+      mobileNav.removeAttribute('hidden');
+      menuBackdrop?.removeAttribute('hidden');
+      menuBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    } else {
+      mobileNav.setAttribute('hidden', '');
+      menuBackdrop?.setAttribute('hidden', '');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
   });
 
-  mobile.querySelectorAll("a").forEach(a => {
-    a.addEventListener("click", () => setMenuOpen(false));
-  });
-
-  window.addEventListener("resize", () => {
-    if (!isMobile()) setMenuOpen(false);
-  });
-}
-
-/* active nav link on scroll */
-const sections = ["home","about","skills","projects","lab","certificates","blog","contact"]
-  .map(id => document.getElementById(id))
-  .filter(Boolean);
-
-const navLinks = Array.from(document.querySelectorAll(".nav-link"));
-
-function setActive(id) {
-  navLinks.forEach(a => {
-    const is = a.getAttribute("href") === `#${id}`;
-    a.classList.toggle("active", is);
-  });
-}
-
-function onScroll() {
-  const y = window.scrollY + 140;
-  let current = "home";
-  for (const s of sections) {
-    if (s.offsetTop <= y) current = s.id;
-  }
-  setActive(current);
-}
-window.addEventListener("scroll", onScroll, { passive: true });
-onScroll();
-
-/* scroll reveal */
-const revealEls = Array.from(document.querySelectorAll(".reveal, .stagger"));
-const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-if (!prefersReducedMotion && "IntersectionObserver" in window) {
-  const io = new IntersectionObserver(
-    (entries) => {
-      for (const e of entries) {
-        if (e.isIntersecting) {
-          e.target.classList.add("is-visible");
-          io.unobserve(e.target);
-        }
-      }
-    },
-    { threshold: 0.15 }
-  );
-
-  revealEls.forEach((el) => io.observe(el));
-} else {
-  revealEls.forEach((el) => el.classList.add("is-visible"));
-}
-
-/* hero frame parallax */
-const frame = document.querySelector(".frame");
-if (frame && !prefersReducedMotion) {
-  frame.addEventListener("mousemove", (ev) => {
-    const r = frame.getBoundingClientRect();
-    const x = (ev.clientX - r.left) / r.width - 0.5;
-    const y = (ev.clientY - r.top) / r.height - 0.5;
-    frame.style.transform = `rotate(-10deg) translate(${x * 10}px, ${y * 10}px)`;
-  });
-
-  frame.addEventListener("mouseleave", () => {
-    frame.style.transform = "rotate(-10deg)";
-  });
-}
-
-/* background cursor spotlight */
-const spotlight = document.getElementById("spotlight");
-if (spotlight && !prefersReducedMotion) {
-  let raf = 0;
-  window.addEventListener("mousemove", (e) => {
-    cancelAnimationFrame(raf);
-    raf = requestAnimationFrame(() => {
-      const x = (e.clientX / window.innerWidth) * 100;
-      const y = (e.clientY / window.innerHeight) * 100;
-      spotlight.style.background =
-        `radial-gradient(300px 300px at ${x}% ${y}%, rgba(255,255,255,.14), transparent 62%)`;
+  // Close menu when clicking a link
+  mobileNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileNav.setAttribute('hidden', '');
+      menuBackdrop?.setAttribute('hidden', '');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
     });
-  }, { passive: true });
-}
-
-/* contact form -> open mail client with prefilled subject/body */
-const contactForm = document.getElementById("contactForm");
-const formHint = document.getElementById("formHint");
-
-if (contactForm) {
-  contactForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const fd = new FormData(contactForm);
-    const name = String(fd.get("name") || "");
-    const email = String(fd.get("email") || "");
-    const message = String(fd.get("message") || "");
-
-    const subject = encodeURIComponent(`Portfolio message from ${name}`);
-    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}\n`);
-    const to = "dhrmiksuhagiya@gmail.com";
-
-    window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
-
-    if (formHint) formHint.textContent = "Opening your email app…";
   });
 }
+
+// Close menu when clicking backdrop
+if (menuBackdrop && mobileNav && menuBtn) {
+  menuBackdrop.addEventListener('click', () => {
+    mobileNav.setAttribute('hidden', '');
+    menuBackdrop.setAttribute('hidden', '');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  });
+}
+
+// Active nav link on scroll
+const navLinks = document.querySelectorAll('.nav-link');
+const sections = document.querySelectorAll('section[id]');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+    
+    if (pageYOffset >= sectionTop - 200) {
+      current = section.getAttribute('id');
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === `#${current}`) {
+      link.classList.add('active');
+    }
+  });
+});
+
+// Contact form handling
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const formData = new FormData(contactForm);
+    const name = String(formData.get('name') || '');
+    const email = String(formData.get('email') || '');
+    const subject = String(formData.get('subject') || 'Project Inquiry');
+    const message = String(formData.get('message') || '');
+
+    const mailSubject = encodeURIComponent(`${subject} - from ${name}`);
+    const mailBody = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+    );
+    const mailTo = 'dhrmiksuhagiya@gmail.com';
+
+    window.location.href = `mailto:${mailTo}?subject=${mailSubject}&body=${mailBody}`;
+    
+    // Show success message
+    const hint = document.getElementById('formHint');
+    if (hint) {
+      hint.textContent = 'Opening your email client...';
+      setTimeout(() => {
+        hint.textContent = '';
+        contactForm.reset();
+      }, 2000);
+    }
+  });
+}
+
+// Smooth scroll behavior for links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const href = this.getAttribute('href');
+    if (href !== '#') {
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+  });
+});
