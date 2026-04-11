@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Maze Solver Robot - Autonomous Navigation and Pathfinding" />
+  <title>Maze Solver Robot | Dharmik Labs</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="bg-gradient"></div>
+
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="logo" href="../index.html">
+        <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <path d="M16 2L28 8V16C28 24.8366 16 30 16 30C16 30 4 24.8366 4 16V8L16 2Z" fill="url(#grad)"/>
+          <defs>
+            <linearGradient id="grad" x1="0" y1="0" x2="32" y2="32">
+              <stop offset="0%" stop-color="#FF6B35"/>
+              <stop offset="100%" stop-color="#C55CFF"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="logo-text">Dharmik Labs</span>
+      </a>
+
+      <nav class="nav">
+        <a class="nav-link" href="../index.html#home">Home</a>
+        <a class="nav-link active" href="../index.html#projects">Projects</a>
+        <a class="nav-link" href="../index.html#about">About</a>
+        <a class="nav-link" href="../index.html#contact">Contact</a>
+      </nav>
+
+      <a class="nav-cta" href="../index.html#contact">Start a project</a>
+    </div>
+  </header>
+
+  <main class="project-hero">
+    <div class="container">
+      <div class="project-header">
+        <a href="../index.html#projects" class="back-link">← Back to Projects</a>
+        <h1>Maze Solver Robot</h1>
+        <p class="project-tagline">Autonomous navigation and pathfinding in real-time</p>
+      </div>
+    </div>
+  </main>
+
+  <section class="project-content">
+    <div class="container">
+      <div class="project-section">
+        <h2>Overview</h2>
+        <p>
+          The Maze Solver Robot is an autonomous system designed to navigate through complex mazes
+          using sensor-based perception and intelligent pathfinding algorithms. The robot learns the
+          maze layout in real-time and finds the optimal path to the exit.
+        </p>
+      </div>
+
+      <div class="project-section">
+        <h2>Key Features</h2>
+        <ul class="feature-list">
+          <li><strong>Sensor Integration:</strong> Ultrasonic and infrared sensors for obstacle detection</li>
+          <li><strong>Real-time Mapping:</strong> Dynamic maze mapping as the robot explores</li>
+          <li><strong>Pathfinding Algorithm:</strong> A* and Dijkstra implementations for optimal routes</li>
+          <li><strong>Motor Control:</strong> Precise movement and rotation control</li>
+          <li><strong>Decision Logic:</strong> Autonomous decision-making at intersections</li>
+          <li><strong>Performance Metrics:</strong> Time tracking and efficiency measurements</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Technology Stack</h2>
+        <div class="tech-stack">
+          <div class="tech-item">
+            <h4>Hardware</h4>
+            <ul>
+              <li>Arduino Microcontroller</li>
+              <li>Ultrasonic Sensors (HC-SR04)</li>
+              <li>Motor Drivers (L298N)</li>
+              <li>DC Motors</li>
+              <li>Servo Motors</li>
+            </ul>
+          </div>
+          <div class="tech-item">
+            <h4>Software & Design</h4>
+            <ul>
+              <li>C++ (Arduino IDE)</li>
+              <li>Python (Simulation)</li>
+              <li>CAD Design</li>
+              <li>3D Designing</li>
+              <li>Fusion360/Solidworks</li>
+              <li>Digital Signal Processing</li>
+              <li>Functional Programming</li>
+              <li>Control Theory</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-section">
+        <h2>Challenges & Solutions</h2>
+        <div class="challenges">
+          <div class="challenge">
+            <h4>Challenge 1: Sensor Noise</h4>
+            <p>Raw sensor data was inconsistent and prone to errors affecting navigation accuracy.</p>
+            <p><strong>Solution:</strong> Implemented sensor fusion with averaging filters and calibration routines.</p>
+          </div>
+          <div class="challenge">
+            <h4>Challenge 2: Motor Inconsistency</h4>
+            <p>Motors had different speeds causing drift and misalignment in maze navigation.</p>
+            <p><strong>Solution:</strong> Added PID control loops for speed matching and directional correction.</p>
+          </div>
+          <div class="challenge">
+            <h4>Challenge 3: Complex Maze Mapping</h4>
+            <p>Storing and processing large maze data structures was memory-intensive.</p>
+            <p><strong>Solution:</strong> Optimized data structures and implemented incremental mapping.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-section">
+        <h2>Results & Metrics</h2>
+        <div class="metrics-grid">
+          <div class="metric">
+            <div class="metric-number">95%</div>
+            <div class="metric-label">Success Rate</div>
+          </div>
+          <div class="metric">
+            <div class="metric-number">2.3s</div>
+            <div class="metric-label">Avg. Solve Time</div>
+          </div>
+          <div class="metric">
+            <div class="metric-number">45cm</div>
+            <div class="metric-label">Max Maze Size</div>
+          </div>
+          <div class="metric">
+            <div class="metric-number">92%</div>
+            <div class="metric-label">Efficiency</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-section">
+        <h2>What I Learned</h2>
+        <ul class="learnings">
+          <li>Sensor calibration and data fusion techniques</li>
+          <li>PID control implementation for robotics</li>
+          <li>Pathfinding algorithms and their trade-offs</li>
+          <li>CAD design and 3D printing workflow</li>
+          <li>Real-time systems and embedded programming</li>
+          <li>Hardware-software integration challenges</li>
+          <li>Iterative testing and debugging in robotics</li>
+          <li>Signal processing for sensor optimization</li>
+        </ul>
+      </div>
+
+      <div class="project-cta">
+        <h3>Interested in similar projects?</h3>
+        <a href="../index.html#contact" class="btn btn-primary">Start a Project</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Dharmik Suhagiya</p>
+      <a href="../index.html">Back to home</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

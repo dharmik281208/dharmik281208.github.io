@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="AI Autonomous Driving Bot - Perception-based Autonomous Navigation" />
+  <title>AI Autonomous Driving Bot | Dharmik Labs</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="bg-gradient"></div>
+
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="logo" href="../index.html">
+        <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <path d="M16 2L28 8V16C28 24.8366 16 30 16 30C16 30 4 24.8366 4 16V8L16 2Z" fill="url(#grad)"/>
+          <defs>
+            <linearGradient id="grad" x1="0" y1="0" x2="32" y2="32">
+              <stop offset="0%" stop-color="#FF6B35"/>
+              <stop offset="100%" stop-color="#C55CFF"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="logo-text">Dharmik Labs</span>
+      </a>
+
+      <nav class="nav">
+        <a class="nav-link" href="../index.html#home">Home</a>
+        <a class="nav-link active" href="../index.html#projects">Projects</a>
+        <a class="nav-link" href="../index.html#about">About</a>
+        <a class="nav-link" href="../index.html#contact">Contact</a>
+      </nav>
+
+      <a class="nav-cta" href="../index.html#contact">Start a project</a>
+    </div>
+  </header>
+
+  <main class="project-hero">
+    <div class="container">
+      <div class="project-header">
+        <a href="../index.html#projects" class="back-link">← Back to Projects</a>
+        <h1>AI Autonomous Driving Bot</h1>
+        <p class="project-tagline">Perception-based autonomous navigation with intelligent decision-making</p>
+      </div>
+    </div>
+  </main>
+
+  <section class="project-content">
+    <div class="container">
+      <div class="project-section">
+        <h2>Overview</h2>
+        <p>
+          An intelligent autonomous vehicle that uses computer vision, sensor fusion, and machine learning
+          to navigate complex environments. The system makes real-time decisions for safe and efficient autonomous driving.
+        </p>
+      </div>
+
+      <div class="project-section">
+        <h2>System Architecture</h2>
+        <div class="architecture">
+          <div class="arch-block">
+            <h4>Perception Layer</h4>
+            <ul>
+              <li>Camera-based object detection</li>
+              <li>LiDAR point cloud processing</li>
+              <li>Sensor fusion algorithms</li>
+              <li>Lane detection</li>
+            </ul>
+          </div>
+          <div class="arch-block">
+            <h4>Planning Layer</h4>
+            <ul>
+              <li>Path planning algorithms</li>
+              <li>Behavior prediction</li>
+              <li>Decision trees</li>
+              <li>Risk assessment</li>
+            </ul>
+          </div>
+          <div class="arch-block">
+            <h4>Control Layer</h4>
+            <ul>
+              <li>PID control systems</li>
+              <li>Motor control</li>
+              <li>Steering commands</li>
+              <li>Safety protocols</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-section">
+        <h2>Key Capabilities</h2>
+        <ul class="feature-list">
+          <li><strong>Real-time Object Detection:</strong> YOLO-based detection of pedestrians, vehicles, and obstacles</li>
+          <li><strong>Lane Following:</strong> Automatic lane detection and staying within lanes</li>
+          <li><strong>Obstacle Avoidance:</strong> Dynamic obstacle detection and collision prevention</li>
+          <li><strong>Traffic Rules:</strong> Respects stop signs, traffic lights, and right-of-way</li>
+          <li><strong>Adaptive Speed:</strong> Adjusts speed based on environment and conditions</li>
+          <li><strong>Route Optimization:</strong> Calculates efficient routes to destinations</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Technology Stack</h2>
+        <div class="tech-stack">
+          <div class="tech-item">
+            <h4>Software & Vision</h4>
+            <ul>
+              <li>OpenCV</li>
+              <li>Computer Vision</li>
+              <li>Python 3.8+</li>
+              <li>TensorFlow for ML models</li>
+              <li>NumPy for numerical computing</li>
+              <li>ROS (Robot Operating System)</li>
+            </ul>
+          </div>
+          <div class="tech-item">
+            <h4>Hardware & Design</h4>
+            <ul>
+              <li>Raspberry Pi 5</li>
+              <li>USB Webcam / Raspberry Pi Camera</li>
+              <li>Ultrasonic Range Sensors</li>
+              <li>IMU (Inertial Measurement Unit)</li>
+              <li>Motor Controllers</li>
+              <li>CAD Design</li>
+              <li>3D Designing</li>
+              <li>Fusion360/Solidworks</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-section">
+        <h2>Development Challenges</h2>
+        <div class="challenges">
+          <div class="challenge">
+            <h4>Challenge 1: Real-time Processing</h4>
+            <p>Computer vision processing is computationally expensive and challenging on embedded systems.</p>
+            <p><strong>Solution:</strong> Model optimization, multi-threading, and efficient algorithms on Raspberry Pi 5.</p>
+          </div>
+          <div class="challenge">
+            <h4>Challenge 2: Sensor Synchronization</h4>
+            <p>Multiple sensors have different refresh rates and latencies causing timing issues.</p>
+            <p><strong>Solution:</strong> Implemented ROS time synchronization and buffering.</p>
+          </div>
+          <div class="challenge">
+            <h4>Challenge 3: Environmental Variability</h4>
+            <p>Different lighting, weather, and track conditions affect perception accuracy.</p>
+            <p><strong>Solution:</strong> Data augmentation and adaptive thresholding techniques in OpenCV.</p>
+          </div>
+          <div class="challenge">
+            <h4>Challenge 4: Safety & Reliability</h4>
+            <p>Autonomous systems must be extremely reliable and safe.</p>
+            <p><strong>Solution:</strong> Redundancy, fail-safes, and extensive testing protocols.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-section">
+        <h2>Performance Metrics</h2>
+        <div class="metrics-grid">
+          <div class="metric">
+            <div class="metric-number">88%</div>
+            <div class="metric-label">Detection Accuracy</div>
+          </div>
+          <div class="metric">
+            <div class="metric-number">45 FPS</div>
+            <div class="metric-label">Processing Speed</div>
+          </div>
+          <div class="metric">
+            <div class="metric-number">2.5m/s</div>
+            <div class="metric-label">Max Speed</div>
+          </div>
+          <div class="metric">
+            <div class="metric-number">92%</div>
+            <div class="metric-label">Lane Accuracy</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-section">
+        <h2>What I Learned</h2>
+        <ul class="learnings">
+          <li>Computer vision and image processing with OpenCV</li>
+          <li>Machine learning model optimization for Raspberry Pi</li>
+          <li>Real-time systems architecture and design patterns</li>
+          <li>Sensor fusion and multi-sensor integration</li>
+          <li>Autonomous systems safety and reliability</li>
+          <li>ROS framework and robotics middleware</li>
+          <li>Performance profiling and optimization</li>
+          <li>CAD design for automotive robotics</li>
+        </ul>
+      </div>
+
+      <div class="project-cta">
+        <h3>Want to build an autonomous system?</h3>
+        <a href="../index.html#contact" class="btn btn-primary">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Dharmik Suhagiya</p>
+      <a href="../index.html">Back to home</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
