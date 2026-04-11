@@ -3,47 +3,48 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Dharmik Suhagiya — Cyber Forensics & Robotics portfolio." />
+  <meta name="description" content="Dharmik Suhagiya — AI, Robotics & Security Expert Portfolio" />
   <title>Dharmik Suhagiya | Dharmik Labs</title>
 
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="style.css" />
+  
+  <!-- EmailJS Library -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 
 <body>
-  <!-- Animated background layers -->
-  <div class="bg" aria-hidden="true">
-    <div class="bg-grid"></div>
-    <div class="bg-blobs">
-      <span class="blob blob-1"></span>
-      <span class="blob blob-2"></span>
-      <span class="blob blob-3"></span>
-    </div>
-    <div class="bg-spotlight" id="spotlight"></div>
-  </div>
+  <!-- Animated gradient background -->
+  <div class="bg-gradient"></div>
 
   <!-- Mobile menu backdrop -->
   <div class="menu-backdrop" id="menuBackdrop" hidden></div>
 
-  <!-- Top Nav -->
+  <!-- Top Navigation -->
   <header class="topbar">
     <div class="container topbar-inner">
-      <a class="logo" href="#home" aria-label="Dharmik Labs home">
-        <span class="logo-text">Dharmik <span>Labs</span></span>
+      <a class="logo" href="index.html" aria-label="Dharmik Labs home">
+        <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 2L28 8V16C28 24.8366 16 30 16 30C16 30 4 24.8366 4 16V8L16 2Z" fill="url(#grad)"/>
+          <defs>
+            <linearGradient id="grad" x1="0" y1="0" x2="32" y2="32">
+              <stop offset="0%" stop-color="#FF6B35"/>
+              <stop offset="100%" stop-color="#C55CFF"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="logo-text">Dharmik Labs</span>
       </a>
 
-      <nav class="nav" aria-label="Primary">
+      <nav class="nav" aria-label="Primary Navigation">
         <a class="nav-link active" href="#home">Home</a>
-        <a class="nav-link" href="#about">About</a>
-        <a class="nav-link" href="#skills">Skills</a>
         <a class="nav-link" href="#projects">Projects</a>
-        <a class="nav-link" href="#lab">Lab</a>
-        <a class="nav-link" href="#certificates">Certificates</a>
-        <a class="nav-link" href="#blog">Blog</a>
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#services">Services</a>
         <a class="nav-link" href="#contact">Contact</a>
       </nav>
 
-      <a class="nav-cta" href="#contact">Contact</a>
+      <a class="nav-cta" href="#contact">Start a project</a>
 
       <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileNav">
         <span class="sr-only">Open menu</span>
@@ -51,772 +52,318 @@
       </button>
     </div>
 
-    <!-- Mobile menu overlay panel -->
+    <!-- Mobile menu overlay -->
     <div id="mobileNav" class="mobile-nav" hidden>
       <div class="mobile-nav-card">
         <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
-        <a href="#lab">Lab</a>
-        <a href="#certificates">Certificates</a>
-        <a href="#blog">Blog</a>
-        <a href="#contact" class="nav-cta nav-cta-mobile">Contact</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact" class="nav-cta">Start a project</a>
       </div>
     </div>
   </header>
 
-  <!-- Hero -->
-  <main id="home" class="hero">
-    <div class="container hero-grid">
-      <section class="hero-left reveal reveal-left" aria-label="Intro">
-        <p class="kicker">WELCOME TO DHARMIK LABS ✨</p>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container hero-wrapper">
+      <div class="hero-content">
+        <div class="hero-badge">🚀 AI, Robotics & Cyber Security</div>
 
-        <h1 class="headline">
-          Hi, I'm <span class="headline-name">Dharmik Suhagiya</span><br />
-          <span class="headline-big">
-            <span class="headline-accent">Cyber</span> Forensics
-            <span class="headline-accent2">&</span> Robotics
-          </span>
+        <h1 class="hero-title">
+          Intelligent systems <span class="grad-text">powering</span> the future
         </h1>
 
-        <p class="subtext">
-          I learn by building. From pentesting labs and network analysis to robotics prototypes,
-          I document my work and create projects that improve skills.
+        <p class="hero-subtitle">
+          Building autonomous robots, AI-driven solutions, and security tools that solve real problems. 
+          From maze-solving algorithms to autonomous driving systems, I turn ideas into intelligent machines.
         </p>
 
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#projects">Explore Projects</a>
-          <a class="btn btn-outline" href="Dharmikcer.pdf" target="_blank" rel="noreferrer">View Certificate</a>
-          <a class="btn btn-outline" href="#contact">Hire / Collaborate</a>
-        </div>
-
-        <div class="social-row" aria-label="Social links">
-          <a class="social" href="mailto:dhrmiksuhagiya@gmail.com" aria-label="Email">@</a>
-          <a class="social" href="#" aria-label="LinkedIn" title="Add your LinkedIn link">in</a>
-
-          <a class="social" href="https://github.com/dharmik281208" aria-label="GitHub" target="_blank" rel="noreferrer">
-            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-              <path fill="currentColor" d="M12 .5C5.73.5.75 5.68.75 12.1c0 5.12 3.2 9.46 7.64 11 .56.1.77-.25.77-.55 0-.27-.01-1-.02-1.96-3.11.7-3.77-1.55-3.77-1.55-.51-1.34-1.25-1.7-1.25-1.7-1.02-.72.08-.7.08-.7 1.13.08 1.73 1.2 1.73 1.2 1 .1 1.6-.74 1.98-1.04-.73-.08-1.5-.38-1.5-1.7 0-.37.13-.67.35-.91-.04-.09-.15-.46.03-.96 0 0 .29-.1.95.35.28-.08.57-.12.87-.12s.6.04.87.12c.66-.45.95-.35.95-.35.18.5.07.87.03.96.22.24.35.54.35.91 0 1.33-.77 1.62-1.51 1.7.12.11.23.33.23.67 0 .48-.01 1.74-.01 1.97 0 .3.2.66.78.55 4.43-1.54 7.63-5.88 7.63-11C23.25 5.68 18.27.5 12 .5z"/>
+          <a class="btn btn-primary" href="#projects">
+            Explore Projects
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M7 10h8m0 0l-3-3m3 3l-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             </svg>
           </a>
-
-          <a class="social" href="#" aria-label="Instagram" target="_blank" rel="noreferrer" title="Add your Instagram link">
-            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-              <path fill="currentColor" d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4A5.8 5.8 0 0 1 16.2 22H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8A3.6 3.6 0 0 0 20 16.4V7.6A3.6 3.6 0 0 0 16.4 4H7.6Zm10.65 1.5a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/>
-            </svg>
-          </a>
+          <a class="btn btn-secondary" href="#contact">Book a meeting</a>
         </div>
 
-        <div class="stats stagger" aria-label="Quick stats">
-          <div class="stat card">
-            <div class="stat-num">3+</div>
-            <div class="muted">Projects</div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number">3+</div>
+            <div class="stat-label">Projects</div>
           </div>
-          <div class="stat card">
-            <div class="stat-num">Security</div>
-            <div class="muted">Pentesting focus</div>
+          <div class="stat-item">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Completed</div>
           </div>
-          <div class="stat card">
-            <div class="stat-num">Robotics</div>
-            <div class="muted">CAD + builds</div>
+          <div class="stat-item">
+            <div class="stat-number">AI & Robotics</div>
+            <div class="stat-label">Focus Areas</div>
           </div>
-        </div>
-      </section>
-
-      <section class="hero-right reveal reveal-right" aria-label="Hero image">
-        <div class="frame">
-          <img src="profile.png" alt="Dharmik Suhagiya photo" />
-          <span class="frame-pill frame-pill-1" aria-hidden="true"></span>
-          <span class="frame-pill frame-pill-2" aria-hidden="true"></span>
-          <span class="frame-pill frame-pill-3" aria-hidden="true"></span>
-        </div>
-      </section>
-    </div>
-
-    <a class="scroll-down" href="#about" aria-label="Scroll to About">
-      <span aria-hidden="true">⌄</span>
-    </a>
-  </main>
-
-  <!-- About -->
-  <section id="about" class="section">
-    <div class="container reveal">
-      <h2>About</h2>
-      <div class="two-col">
-        <p class="muted">
-          I’m Dharmik Suhagiya. My interests are Cyber Forensics and Robotics.
-          I enjoy building security labs, practicing bug bounty, analyzing networks,
-          and designing robotics hardware. I focus on learning fundamentals first and then building real projects.
-        </p>
-
-        <div class="card callout">
-          <h3>What I’m doing now</h3>
-          <ul class="list">
-            <li>Strengthening Linux + networking fundamentals</li>
-            <li>Practicing web security and recon workflows</li>
-            <li>Building robotics prototypes and testing sensors</li>
-            <li>Improving documentation and project structure</li>
-          </ul>
         </div>
       </div>
 
-      <div class="cards stagger" style="margin-top:16px">
-        <article class="card">
-          <h3>Cyber Forensics</h3>
-          <p class="muted">Logs, evidence, and investigation mindset. Learn how to identify what happened and why.</p>
-        </article>
-        <article class="card">
-          <h3>Pentesting</h3>
-          <p class="muted">Recon → scan → exploit (ethically) → report. Focus on understanding weaknesses and fixes.</p>
-        </article>
-        <article class="card">
-          <h3>Robotics</h3>
-          <p class="muted">Sensors, control logic, and CAD. Design systems that can move and solve tasks.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills" class="section section-alt">
-    <div class="container reveal">
-      <h2>Skills</h2>
-      <p class="muted">A snapshot of what I work with.</p>
-
-      <h3 class="subhead">Core Skills</h3>
-      <div class="pill-grid stagger">
-        <span class="pill">Pentesting</span>
-        <span class="pill">Bug bounty</span>
-        <span class="pill">Network analysis</span>
-        <span class="pill">Hardware design</span>
-        <span class="pill">Linux basics</span>
-        <span class="pill">Network basics</span>
-        <span class="pill">CAD designing</span>
-      </div>
-
-      <h3 class="subhead">Tools I use</h3>
-      <div class="pill-grid stagger">
-        <span class="pill pill-soft">Linux</span>
-        <span class="pill pill-soft">Wireshark</span>
-        <span class="pill pill-soft">Burp Suite (learning)</span>
-        <span class="pill pill-soft">Nmap</span>
-        <span class="pill pill-soft">Git & GitHub</span>
-        <span class="pill pill-soft">CAD</span>
-      </div>
-
-      <h3 class="subhead">What I’m learning next</h3>
-      <div class="cards stagger">
-        <article class="card">
-          <h3>Web Security</h3>
-          <p class="muted">XSS, SSRF, IDOR, auth issues, and secure coding basics.</p>
-        </article>
-        <article class="card">
-          <h3>Forensics Workflow</h3>
-          <p class="muted">Timeline building, evidence handling, and reporting.</p>
-        </article>
-        <article class="card">
-          <h3>Robotics Autonomy</h3>
-          <p class="muted">Perception, planning, and control improvements.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects" class="section">
-    <div class="container reveal">
-      <h2>Projects</h2>
-      <p class="muted">Selected builds (add real links anytime).</p>
-
-      <div class="cards stagger">
-        <article class="card project">
-          <h3>AI Autonomous Driving Bot</h3>
-          <p class="muted">Perception + control loop concept for an autonomous bot.</p>
-          <div class="tags">
-            <span class="tag">AI</span><span class="tag">Robotics</span><span class="tag">Autonomy</span>
-          </div>
-          <div class="card-links">
-            <a href="#" class="link">GitHub</a>
-            <a href="#" class="link">Demo</a>
-          </div>
-        </article>
-
-        <article class="card project">
-          <h3>Maze Solver Robot</h3>
-          <p class="muted">Robot that maps and solves a maze using sensors + logic.</p>
-          <div class="tags">
-            <span class="tag">Sensors</span><span class="tag">Control</span><span class="tag">CAD</span>
-          </div>
-          <div class="card-links">
-            <a href="#" class="link">GitHub</a>
-            <a href="#" class="link">Demo</a>
-          </div>
-        </article>
-
-        <article class="card project">
-          <h3>RAT (Remote Administration Tool)</h3>
-          <p class="muted">Learning project for understanding remote admin & defenses.</p>
-          <div class="tags">
-            <span class="tag">Networking</span><span class="tag">Security</span><span class="tag">Forensics</span>
-          </div>
-          <div class="card-links">
-            <a href="#" class="link">GitHub</a>
-            <a href="#" class="link">Docs</a>
-          </div>
-        </article>
-      </div>
-
-      <div class="card reveal" style="margin-top:16px">
-        <h3>Want to see more?</h3>
-        <p class="muted">
-          I can add a complete “Project Details” section for each project (screenshots, features, tech stack, challenges, what I learned).
-          Send me your GitHub repo links for each project.
-        </p>
-        <div class="form-actions">
-          <a class="btn btn-primary" href="https://github.com/dharmik281208" target="_blank" rel="noreferrer">Visit GitHub</a>
-          <a class="btn btn-outline" href="#contact">Request a project</a>
+      <div class="hero-image-wrapper">
+        <div class="hero-image">
+          <img src="profile.png" alt="Dharmik Suhagiya" class="profile-img" />
+          <div class="glow glow-1"></div>
+          <div class="glow glow-2"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Lab -->
-  <section id="lab" class="section section-alt">
-    <div class="container reveal">
-      <h2>Lab (Learning Notes)</h2>
-      <p class="muted">A structured place for what I practice and document.</p>
+  <!-- Projects Section -->
+  <section id="projects" class="section projects-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">Building intelligent systems that learn and adapt</p>
+      </div>
 
-      <div class="cards stagger">
-        <article class="card">
-          <h3>Recon Checklist</h3>
-          <p class="muted">Targets → subdomains → ports → tech → endpoints → findings.</p>
-        </article>
-        <article class="card">
-          <h3>Network Analysis Notes</h3>
-          <p class="muted">Traffic, protocols, filters, and common patterns.</p>
-        </article>
-        <article class="card">
-          <h3>Robotics Iteration Log</h3>
-          <p class="muted">What changed, why it changed, and what improved.</p>
-        </article>
+      <div class="projects-grid">
+        <!-- Project 1: Maze Solver -->
+        <a href="project-maze-solver.html" class="project-card">
+          <div class="project-image-box">
+            <div class="project-gradient grad-blue"></div>
+            <div class="project-icon">🤖</div>
+          </div>
+          
+          <div class="project-info">
+            <h3>Maze Solver Robot</h3>
+            <p>Autonomous robot using sensors and pathfinding algorithms to navigate and solve mazes in real-time.</p>
+            
+            <div class="project-tech-list">
+              <span class="tech-badge">Robotics</span>
+              <span class="tech-badge">Sensors</span>
+              <span class="tech-badge">Algorithms</span>
+              <span class="tech-badge">CAD Design</span>
+            </div>
+          </div>
+
+          <div class="project-footer">
+            <span class="view-more">View Details →</span>
+          </div>
+        </a>
+
+        <!-- Project 2: Autonomous Driving -->
+        <a href="project-autonomous-driving.html" class="project-card">
+          <div class="project-image-box">
+            <div class="project-gradient grad-purple"></div>
+            <div class="project-icon">🚗</div>
+          </div>
+          
+          <div class="project-info">
+            <h3>AI Autonomous Driving Bot</h3>
+            <p>Perception-based autonomous vehicle with real-time decision making and adaptive control systems.</p>
+            
+            <div class="project-tech-list">
+              <span class="tech-badge">AI/ML</span>
+              <span class="tech-badge">Vision</span>
+              <span class="tech-badge">Control</span>
+              <span class="tech-badge">Python</span>
+            </div>
+          </div>
+
+          <div class="project-footer">
+            <span class="view-more">View Details →</span>
+          </div>
+        </a>
+
+        <!-- Project 3: Security Tools -->
+        <a href="project-security-tools.html" class="project-card">
+          <div class="project-image-box">
+            <div class="project-gradient grad-orange"></div>
+            <div class="project-icon">🔒</div>
+          </div>
+          
+          <div class="project-info">
+            <h3>Security Tools Suite</h3>
+            <p>Comprehensive pentesting toolkit and remote administration learning system with forensics focus.</p>
+            
+            <div class="project-tech-list">
+              <span class="tech-badge">Security</span>
+              <span class="tech-badge">Pentesting</span>
+              <span class="tech-badge">Forensics</span>
+              <span class="tech-badge">Python</span>
+            </div>
+          </div>
+
+          <div class="project-footer">
+            <span class="view-more">View Details →</span>
+          </div>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Certificates -->
-  <section id="certificates" class="section">
-    <div class="container reveal">
-      <h2>Certificates</h2>
-      <p class="muted">Your certificate is available below.</p>
-
-      <div class="cards stagger">
-        <article class="card">
-          <h3>Dharmik Certificate</h3>
-          <p class="muted">Click to view or download the PDF.</p>
-          <div class="card-links">
-            <a class="link" href="Dharmikcer.pdf" target="_blank" rel="noreferrer">View</a>
-            <a class="link" href="Dharmikcer.pdf" download>Download</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <h3>Next certificates</h3>
-          <p class="muted">Try: Linux, Networking, Web Security, Forensics.</p>
-        </article>
-
-        <article class="card">
-          <h3>Achievements</h3>
-          <p class="muted">Add CTF rankings, badges, or event participation.</p>
-        </article>
+  <!-- About Section -->
+  <section id="about" class="section about-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">About Me</h2>
       </div>
-    </div>
-  </section>
 
-  <!-- Blog -->
-  <section id="blog" class="section section-alt">
-    <div class="container reveal">
-      <h2>Blog</h2>
-      <p class="muted">Short posts about what I learn. (Static cards for now.)</p>
+      <div class="about-grid">
+        <div class="about-content">
+          <p class="about-text">
+            I'm <strong>Dharmik Suhagiya</strong>, a passionate developer and engineer focused on building intelligent systems. 
+            My expertise spans AI, robotics, and cybersecurity. I believe in learning by building, where every project is 
+            an opportunity to solve real problems and push boundaries.
+          </p>
 
-      <div class="cards stagger">
-        <article class="card">
-          <h3>My Pentesting Roadmap</h3>
-          <p class="muted">How I’m learning: basics → labs → reports → real projects.</p>
-          <div class="card-links">
-            <a href="#contact" class="link">Request full post</a>
+          <p class="about-text">
+            With a focus on practical implementation, I combine theoretical knowledge with hands-on experience to create 
+            solutions that are both innovative and reliable.
+          </p>
+
+          <div class="about-stats">
+            <div class="stat-box">
+              <div class="stat-number">150+</div>
+              <div class="stat-label">Hours Learning</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-number">5+</div>
+              <div class="stat-label">Technologies</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Commitment</div>
+            </div>
           </div>
-        </article>
-        <article class="card">
-          <h3>Wireshark Filters I Use</h3>
-          <p class="muted">Simple filters and how they help in analysis.</p>
-          <div class="card-links">
-            <a href="#contact" class="link">Request full post</a>
-          </div>
-        </article>
-        <article class="card">
-          <h3>Building a Maze Solver</h3>
-          <p class="muted">Sensors, logic, and testing lessons.</p>
-          <div class="card-links">
-            <a href="#contact" class="link">Request full post</a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
 
-  <!-- Contact -->
-  <section id="contact" class="section">
-    <div class="container reveal">
-      <h2>Contact</h2>
-      <p class="muted">
-        Email: <a class="link" href="mailto:dhrmiksuhagiya@gmail.com">dhrmiksuhagiya@gmail.com</a>
-      </p>
-
-      <form class="form card" id="contactForm">
-        <div class="form-row">
-          <label>
-            <span>Name</span>
-            <input type="text" name="name" placeholder="Your name" required />
-          </label>
-          <label>
-            <span>Email</span>
-            <input type="email" name="email" placeholder="you@example.com" required />
-          </label>
+          <div class="cta-group">
+            <a href="assets/Dharmikcer.pdf" target="_blank" rel="noreferrer" class="btn btn-primary">Download Certificate</a>
+            <a href="#contact" class="btn btn-secondary">Get in touch</a>
+          </div>
         </div>
 
-        <label>
-          <span>Message</span>
-          <textarea name="message" rows="5" placeholder="Write your message..." required></textarea>
-        </label>
-
-        <div class="form-actions">
-          <button class="btn btn-primary" type="submit">Send</button>
-          <a class="btn btn-outline" href="mailto:dhrmiksuhagiya@gmail.com">Email directly</a>
-          <a class="btn btn-outline" href="Dharmikcer.pdf" target="_blank" rel="noreferrer">Certificate</a>
+        <div class="about-image-wrapper">
+          <div class="about-image">
+            <img src="profile.png" alt="Dharmik Suhagiya" />
+            <div class="frame-accent"></div>
+          </div>
         </div>
-
-        <p class="muted tiny" id="formHint" aria-live="polite"></p>
-      </form>
+      </div>
     </div>
   </section>
 
+  <!-- Services Section -->
+  <section id="services" class="section services-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Services & Solutions</h2>
+        <p class="section-subtitle">What I can help you build</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🤖</div>
+          <h3>Robotics Development</h3>
+          <p>Design and build autonomous robots with sensors, control systems, and intelligent algorithms.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🚗</div>
+          <h3>AI & Autonomy</h3>
+          <p>Develop perception and decision-making systems for autonomous vehicles and robots.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🔒</div>
+          <h3>Security Solutions</h3>
+          <p>Pentesting, vulnerability assessment, and security tool development.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🔍</div>
+          <h3>Network Analysis</h3>
+          <p>Deep packet inspection, traffic analysis, and network security audits.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">💡</div>
+          <h3>Research & Development</h3>
+          <p>Prototyping, testing, and iterating on new robotics and security concepts.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">📚</div>
+          <h3>Documentation & Training</h3>
+          <p>Detailed project documentation and technical training for teams.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section contact-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Let's Build Something Amazing</h2>
+        <p class="section-subtitle">Ready to start your next project? Let's talk.</p>
+      </div>
+
+      <div class="contact-wrapper">
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <input type="text" name="user_name" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <input type="email" name="user_email" placeholder="your@email.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" name="subject" placeholder="Project title" required />
+          </div>
+          <div class="form-group">
+            <textarea name="message" rows="6" placeholder="Tell me about your project..."></textarea>
+          </div>
+          
+          <div class="form-actions">
+            <button class="btn btn-primary" type="submit" id="submitBtn">
+              <span id="submitText">Send Message</span>
+              <span id="submitLoader" style="display:none;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <circle cx="12" cy="12" r="1" opacity="0"/>
+                </svg>
+              </span>
+            </button>
+          </div>
+          
+          <p class="form-hint" id="formHint"></p>
+        </form>
+
+        <div class="contact-info">
+          <div class="contact-item">
+            <h4>Email</h4>
+            <a href="mailto:dhrmiksuhagiya@gmail.com">dhrmiksuhagiya@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <h4>GitHub</h4>
+            <a href="https://github.com/dharmik281208" target="_blank" rel="noreferrer">github.com/dharmik281208</a>
+          </div>
+          <div class="contact-item">
+            <h4>Location</h4>
+            <p>Based in India</p>
+          </div>
+          <div class="contact-item">
+            <h4>Availability</h4>
+            <p>Open for collaborations and projects</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer class="footer">
     <div class="container footer-inner">
-      <span class="muted">© <span id="year"></span> Dharmik Suhagiya • dharmiklabs.me</span>
-      <a class="link" href="#home">Back to top</a>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html><!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Dharmik Suhagiya — Cyber Forensics & Robotics portfolio." />
-  <title>Dharmik Suhagiya | Dharmik Labs</title>
-
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-
-<body>
-  <!-- Animated background layers -->
-  <div class="bg" aria-hidden="true">
-    <div class="bg-grid"></div>
-    <div class="bg-blobs">
-      <span class="blob blob-1"></span>
-      <span class="blob blob-2"></span>
-      <span class="blob blob-3"></span>
-    </div>
-    <div class="bg-spotlight" id="spotlight"></div>
-  </div>
-
-  <!-- Mobile menu backdrop -->
-  <div class="menu-backdrop" id="menuBackdrop" hidden></div>
-
-  <!-- Top Nav -->
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <a class="logo" href="#home" aria-label="Dharmik Labs home">
-        <span class="logo-text">Dharmik <span>Labs</span></span>
-      </a>
-
-      <nav class="nav" aria-label="Primary">
-        <a class="nav-link active" href="#home">Home</a>
-        <a class="nav-link" href="#about">About</a>
-        <a class="nav-link" href="#skills">Skills</a>
-        <a class="nav-link" href="#projects">Projects</a>
-        <a class="nav-link" href="#lab">Lab</a>
-        <a class="nav-link" href="#certificates">Certificates</a>
-        <a class="nav-link" href="#blog">Blog</a>
-        <a class="nav-link" href="#contact">Contact</a>
-      </nav>
-
-      <a class="nav-cta" href="#contact">Contact</a>
-
-      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileNav">
-        <span class="sr-only">Open menu</span>
-        <span class="menu-lines" aria-hidden="true"></span>
-      </button>
-    </div>
-
-    <!-- Mobile menu overlay panel -->
-    <div id="mobileNav" class="mobile-nav" hidden>
-      <div class="mobile-nav-card">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#lab">Lab</a>
-        <a href="#certificates">Certificates</a>
-        <a href="#blog">Blog</a>
-        <a href="#contact" class="nav-cta nav-cta-mobile">Contact</a>
-      </div>
-    </div>
-  </header>
-
-  <!-- Hero -->
-  <main id="home" class="hero">
-    <div class="container hero-grid">
-      <section class="hero-left reveal reveal-left" aria-label="Intro">
-        <p class="kicker">WELCOME TO DHARMIK LABS ✨</p>
-
-        <h1 class="headline">
-          Hi, I'm <span class="headline-name">Dharmik Suhagiya</span><br />
-          <span class="headline-big">
-            <span class="headline-accent">Cyber</span> Forensics
-            <span class="headline-accent2">&</span> Robotics
-          </span>
-        </h1>
-
-        <p class="subtext">
-          I learn by building. From pentesting labs and network analysis to robotics prototypes,
-          I document my work and create projects that improve skills.
-        </p>
-
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#projects">Explore Projects</a>
-          <a class="btn btn-outline" href="Dharmikcer.pdf" target="_blank" rel="noreferrer">View Certificate</a>
-          <a class="btn btn-outline" href="#contact">Hire / Collaborate</a>
-        </div>
-
-        <div class="social-row" aria-label="Social links">
-          <a class="social" href="mailto:dhrmiksuhagiya@gmail.com" aria-label="Email">@</a>
-          <a class="social" href="#" aria-label="LinkedIn" title="Add your LinkedIn link">in</a>
-
-          <a class="social" href="https://github.com/dharmik281208" aria-label="GitHub" target="_blank" rel="noreferrer">
-            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-              <path fill="currentColor" d="M12 .5C5.73.5.75 5.68.75 12.1c0 5.12 3.2 9.46 7.64 11 .56.1.77-.25.77-.55 0-.27-.01-1-.02-1.96-3.11.7-3.77-1.55-3.77-1.55-.51-1.34-1.25-1.7-1.25-1.7-1.02-.72.08-.7.08-.7 1.13.08 1.73 1.2 1.73 1.2 1 .1 1.6-.74 1.98-1.04-.73-.08-1.5-.38-1.5-1.7 0-.37.13-.67.35-.91-.04-.09-.15-.46.03-.96 0 0 .29-.1.95.35.28-.08.57-.12.87-.12s.6.04.87.12c.66-.45.95-.35.95-.35.18.5.07.87.03.96.22.24.35.54.35.91 0 1.33-.77 1.62-1.51 1.7.12.11.23.33.23.67 0 .48-.01 1.74-.01 1.97 0 .3.2.66.78.55 4.43-1.54 7.63-5.88 7.63-11C23.25 5.68 18.27.5 12 .5z"/>
-            </svg>
-          </a>
-
-          <a class="social" href="#" aria-label="Instagram" target="_blank" rel="noreferrer" title="Add your Instagram link">
-            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-              <path fill="currentColor" d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4A5.8 5.8 0 0 1 16.2 22H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8A3.6 3.6 0 0 0 20 16.4V7.6A3.6 3.6 0 0 0 16.4 4H7.6Zm10.65 1.5a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/>
-            </svg>
-          </a>
-        </div>
-
-        <div class="stats stagger" aria-label="Quick stats">
-          <div class="stat card">
-            <div class="stat-num">3+</div>
-            <div class="muted">Projects</div>
-          </div>
-          <div class="stat card">
-            <div class="stat-num">Security</div>
-            <div class="muted">Pentesting focus</div>
-          </div>
-          <div class="stat card">
-            <div class="stat-num">Robotics</div>
-            <div class="muted">CAD + builds</div>
-          </div>
-        </div>
-      </section>
-
-      <section class="hero-right reveal reveal-right" aria-label="Hero image">
-        <div class="frame">
-          <img src="profile.png" alt="Dharmik Suhagiya photo" />
-          <span class="frame-pill frame-pill-1" aria-hidden="true"></span>
-          <span class="frame-pill frame-pill-2" aria-hidden="true"></span>
-          <span class="frame-pill frame-pill-3" aria-hidden="true"></span>
-        </div>
-      </section>
-    </div>
-
-    <a class="scroll-down" href="#about" aria-label="Scroll to About">
-      <span aria-hidden="true">⌄</span>
-    </a>
-  </main>
-
-  <!-- About -->
-  <section id="about" class="section">
-    <div class="container reveal">
-      <h2>About</h2>
-      <div class="two-col">
-        <p class="muted">
-          I’m Dharmik Suhagiya. My interests are Cyber Forensics and Robotics.
-          I enjoy building security labs, practicing bug bounty, analyzing networks,
-          and designing robotics hardware. I focus on learning fundamentals first and then building real projects.
-        </p>
-
-        <div class="card callout">
-          <h3>What I’m doing now</h3>
-          <ul class="list">
-            <li>Strengthening Linux + networking fundamentals</li>
-            <li>Practicing web security and recon workflows</li>
-            <li>Building robotics prototypes and testing sensors</li>
-            <li>Improving documentation and project structure</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="cards stagger" style="margin-top:16px">
-        <article class="card">
-          <h3>Cyber Forensics</h3>
-          <p class="muted">Logs, evidence, and investigation mindset. Learn how to identify what happened and why.</p>
-        </article>
-        <article class="card">
-          <h3>Pentesting</h3>
-          <p class="muted">Recon → scan → exploit (ethically) → report. Focus on understanding weaknesses and fixes.</p>
-        </article>
-        <article class="card">
-          <h3>Robotics</h3>
-          <p class="muted">Sensors, control logic, and CAD. Design systems that can move and solve tasks.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills" class="section section-alt">
-    <div class="container reveal">
-      <h2>Skills</h2>
-      <p class="muted">A snapshot of what I work with.</p>
-
-      <h3 class="subhead">Core Skills</h3>
-      <div class="pill-grid stagger">
-        <span class="pill">Pentesting</span>
-        <span class="pill">Bug bounty</span>
-        <span class="pill">Network analysis</span>
-        <span class="pill">Hardware design</span>
-        <span class="pill">Linux basics</span>
-        <span class="pill">Network basics</span>
-        <span class="pill">CAD designing</span>
-      </div>
-
-      <h3 class="subhead">Tools I use</h3>
-      <div class="pill-grid stagger">
-        <span class="pill pill-soft">Linux</span>
-        <span class="pill pill-soft">Wireshark</span>
-        <span class="pill pill-soft">Burp Suite (learning)</span>
-        <span class="pill pill-soft">Nmap</span>
-        <span class="pill pill-soft">Git & GitHub</span>
-        <span class="pill pill-soft">CAD</span>
-      </div>
-
-      <h3 class="subhead">What I’m learning next</h3>
-      <div class="cards stagger">
-        <article class="card">
-          <h3>Web Security</h3>
-          <p class="muted">XSS, SSRF, IDOR, auth issues, and secure coding basics.</p>
-        </article>
-        <article class="card">
-          <h3>Forensics Workflow</h3>
-          <p class="muted">Timeline building, evidence handling, and reporting.</p>
-        </article>
-        <article class="card">
-          <h3>Robotics Autonomy</h3>
-          <p class="muted">Perception, planning, and control improvements.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects" class="section">
-    <div class="container reveal">
-      <h2>Projects</h2>
-      <p class="muted">Selected builds (add real links anytime).</p>
-
-      <div class="cards stagger">
-        <article class="card project">
-          <h3>AI Autonomous Driving Bot</h3>
-          <p class="muted">Perception + control loop concept for an autonomous bot.</p>
-          <div class="tags">
-            <span class="tag">AI</span><span class="tag">Robotics</span><span class="tag">Autonomy</span>
-          </div>
-          <div class="card-links">
-            <a href="#" class="link">GitHub</a>
-            <a href="#" class="link">Demo</a>
-          </div>
-        </article>
-
-        <article class="card project">
-          <h3>Maze Solver Robot</h3>
-          <p class="muted">Robot that maps and solves a maze using sensors + logic.</p>
-          <div class="tags">
-            <span class="tag">Sensors</span><span class="tag">Control</span><span class="tag">CAD</span>
-          </div>
-          <div class="card-links">
-            <a href="#" class="link">GitHub</a>
-            <a href="#" class="link">Demo</a>
-          </div>
-        </article>
-
-        <article class="card project">
-          <h3>RAT (Remote Administration Tool)</h3>
-          <p class="muted">Learning project for understanding remote admin & defenses.</p>
-          <div class="tags">
-            <span class="tag">Networking</span><span class="tag">Security</span><span class="tag">Forensics</span>
-          </div>
-          <div class="card-links">
-            <a href="#" class="link">GitHub</a>
-            <a href="#" class="link">Docs</a>
-          </div>
-        </article>
-      </div>
-
-      <div class="card reveal" style="margin-top:16px">
-        <h3>Want to see more?</h3>
-        <p class="muted">
-          I can add a complete “Project Details” section for each project (screenshots, features, tech stack, challenges, what I learned).
-          Send me your GitHub repo links for each project.
-        </p>
-        <div class="form-actions">
-          <a class="btn btn-primary" href="https://github.com/dharmik281208" target="_blank" rel="noreferrer">Visit GitHub</a>
-          <a class="btn btn-outline" href="#contact">Request a project</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Lab -->
-  <section id="lab" class="section section-alt">
-    <div class="container reveal">
-      <h2>Lab (Learning Notes)</h2>
-      <p class="muted">A structured place for what I practice and document.</p>
-
-      <div class="cards stagger">
-        <article class="card">
-          <h3>Recon Checklist</h3>
-          <p class="muted">Targets → subdomains → ports → tech → endpoints → findings.</p>
-        </article>
-        <article class="card">
-          <h3>Network Analysis Notes</h3>
-          <p class="muted">Traffic, protocols, filters, and common patterns.</p>
-        </article>
-        <article class="card">
-          <h3>Robotics Iteration Log</h3>
-          <p class="muted">What changed, why it changed, and what improved.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Certificates -->
-  <section id="certificates" class="section">
-    <div class="container reveal">
-      <h2>Certificates</h2>
-      <p class="muted">Your certificate is available below.</p>
-
-      <div class="cards stagger">
-        <article class="card">
-          <h3>Dharmik Certificate</h3>
-          <p class="muted">Click to view or download the PDF.</p>
-          <div class="card-links">
-            <a class="link" href="Dharmikcer.pdf" target="_blank" rel="noreferrer">View</a>
-            <a class="link" href="Dharmikcer.pdf" download>Download</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <h3>Next certificates</h3>
-          <p class="muted">Try: Linux, Networking, Web Security, Forensics.</p>
-        </article>
-
-        <article class="card">
-          <h3>Achievements</h3>
-          <p class="muted">Add CTF rankings, badges, or event participation.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Blog -->
-  <section id="blog" class="section section-alt">
-    <div class="container reveal">
-      <h2>Blog</h2>
-      <p class="muted">Short posts about what I learn. (Static cards for now.)</p>
-
-      <div class="cards stagger">
-        <article class="card">
-          <h3>My Pentesting Roadmap</h3>
-          <p class="muted">How I’m learning: basics → labs → reports → real projects.</p>
-          <div class="card-links">
-            <a href="#contact" class="link">Request full post</a>
-          </div>
-        </article>
-        <article class="card">
-          <h3>Wireshark Filters I Use</h3>
-          <p class="muted">Simple filters and how they help in analysis.</p>
-          <div class="card-links">
-            <a href="#contact" class="link">Request full post</a>
-          </div>
-        </article>
-        <article class="card">
-          <h3>Building a Maze Solver</h3>
-          <p class="muted">Sensors, logic, and testing lessons.</p>
-          <div class="card-links">
-            <a href="#contact" class="link">Request full post</a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="section">
-    <div class="container reveal">
-      <h2>Contact</h2>
-      <p class="muted">
-        Email: <a class="link" href="mailto:dhrmiksuhagiya@gmail.com">dhrmiksuhagiya@gmail.com</a>
-      </p>
-
-      <form class="form card" id="contactForm">
-        <div class="form-row">
-          <label>
-            <span>Name</span>
-            <input type="text" name="name" placeholder="Your name" required />
-          </label>
-          <label>
-            <span>Email</span>
-            <input type="email" name="email" placeholder="you@example.com" required />
-          </label>
-        </div>
-
-        <label>
-          <span>Message</span>
-          <textarea name="message" rows="5" placeholder="Write your message..." required></textarea>
-        </label>
-
-        <div class="form-actions">
-          <button class="btn btn-primary" type="submit">Send</button>
-          <a class="btn btn-outline" href="mailto:dhrmiksuhagiya@gmail.com">Email directly</a>
-          <a class="btn btn-outline" href="Dharmikcer.pdf" target="_blank" rel="noreferrer">Certificate</a>
-        </div>
-
-        <p class="muted tiny" id="formHint" aria-live="polite"></p>
-      </form>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container footer-inner">
-      <span class="muted">© <span id="year"></span> Dharmik Suhagiya • dharmiklabs.me</span>
-      <a class="link" href="#home">Back to top</a>
+      <p>&copy; <span id="year"></span> Dharmik Suhagiya. All rights reserved.</p>
+      <a href="#home" class="footer-link">Back to top ↑</a>
     </div>
   </footer>
 
