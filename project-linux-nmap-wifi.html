@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Linux + Nmap + WiFi Attacks (Lab Project) — ethical learning lab." />
+  <title>Linux + Nmap + WiFi Attacks (Lab Project) | Dharmik Labs</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="bg-gradient"></div>
+
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="logo" href="index.html" aria-label="Dharmik Labs home">
+        <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 2L28 8V16C28 24.8366 16 30 16 30C16 30 4 24.8366 4 16V8L16 2Z" fill="url(#grad)"/>
+          <defs>
+            <linearGradient id="grad" x1="0" y1="0" x2="32" y2="32">
+              <stop offset="0%" stop-color="#FF6B35"/>
+              <stop offset="100%" stop-color="#C55CFF"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="logo-text">Dharmik Labs</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary Navigation">
+        <a class="nav-link" href="../index.html#home">Home</a>
+        <a class="nav-link active" href="../index.html#projects">Projects</a>
+        <a class="nav-link" href="../index.html#about">About</a>
+        <a class="nav-link" href="../index.html#contact">Contact</a>
+      </nav>
+
+      <a class="nav-cta" href="../index.html#contact">Start a project</a>
+    </div>
+  </header>
+
+  <main class="project-hero">
+    <div class="container">
+      <div class="project-header">
+        <a href="../index.html#projects" class="back-link">← Back to Projects</a>
+        <h1>Linux + Nmap + WiFi Attacks (Lab Project)</h1>
+        <p class="project-tagline">Ethical learning lab: fundamentals → reconnaissance → wireless security concepts</p>
+      </div>
+    </div>
+  </main>
+
+  <section class="project-content">
+    <div class="container">
+
+      <div class="project-section">
+        <h2>Overview</h2>
+        <p>
+          This project is a <strong>personal ethical lab</strong> where I learned Linux fundamentals, performed network
+          reconnaissance using Nmap, and studied wireless security concepts (including brute-force and deauthentication)
+          <strong>only in a controlled environment</strong> on devices and networks I own or have permission to test.
+        </p>
+      </div>
+
+      <div class="project-section">
+        <h2>What I Practiced</h2>
+        <ul class="feature-list">
+          <li><strong>Linux Basics:</strong> file system, permissions, services, logs, package management</li>
+          <li><strong>Nmap Recon:</strong> host discovery, port scanning, service/version detection, scan analysis</li>
+          <li><strong>WiFi Security Concepts:</strong> authentication, handshake basics, protection mechanisms</li>
+          <li><strong>Lab Documentation:</strong> notes, screenshots, and safe reporting format</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Tech & Tools (High-level)</h2>
+        <div class="tech-stack">
+          <div class="tech-item">
+            <h4>Core</h4>
+            <ul>
+              <li>Linux</li>
+              <li>Nmap</li>
+              <li>Networking fundamentals</li>
+              <li>Basic scripting (for automation)</li>
+            </ul>
+          </div>
+          <div class="tech-item">
+            <h4>Wireless (Ethical Lab)</h4>
+            <ul>
+              <li>WiFi security concepts</li>
+              <li>Bruteforce (controlled environment)</li>
+              <li>Deauthentication (controlled environment)</li>
+              <li>Defensive learnings: monitoring + mitigation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-section">
+        <h2>Defensive Takeaways</h2>
+        <ul class="feature-list">
+          <li><strong>Use strong WPA2/WPA3 passphrases</strong> and avoid common passwords.</li>
+          <li><strong>Keep router firmware updated</strong> and disable weak features.</li>
+          <li><strong>Monitor for unusual clients</strong> and suspicious disconnections.</li>
+          <li><strong>Segment networks</strong> (guest WiFi / IoT separation) to reduce risk.</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>What I Learned</h2>
+        <ul class="learnings">
+          <li>How Linux permissions and services affect security posture</li>
+          <li>How to interpret Nmap output and prioritize findings</li>
+          <li>How WiFi authentication works (high-level)</li>
+          <li>How to document labs ethically and safely</li>
+          <li>Defense-first thinking: hardening + monitoring</li>
+        </ul>
+      </div>
+
+      <div class="project-cta">
+        <h3>Want a clean lab report format or checklist?</h3>
+        <a href="../index.html#contact" class="btn btn-primary">Contact Me</a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Dharmik Suhagiya</p>
+      <a href="../index.html">Back to home</a>
+    </div>
+  </footer>
+
+  <script>
+    const y = document.getElementById("year");
+    if (y) y.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
