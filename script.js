@@ -1,26 +1,21 @@
 // ==============================
-// EmailJS config (REQUIRED)
+// EmailJS init (your keys added)
 // ==============================
-// 1) Create EmailJS account
-// 2) Add Email Service (Gmail)
-// 3) Create Template
-// 4) Replace keys below
-
-(function initEmailJS(){
-  if (!window.emailjs) return;
-
-  // Replace with your EmailJS Public Key
+(function initEmailJS() {
+  if (!window.emailjs) {
+    console.error("[EmailJS] Library not loaded. Check index.html script tag.");
+    return;
+  }
   emailjs.init("9RBr4vVjeyOXZPxS9");
+  console.log("[EmailJS] Initialized.");
 })();
 
-// ==============================
 // Footer year
-// ==============================
 const year = document.getElementById("year");
 if (year) year.textContent = new Date().getFullYear();
 
 // ==============================
-// Mobile menu (overlay + backdrop)
+// Mobile menu
 // ==============================
 const menuBtn = document.getElementById("menuBtn");
 const mobileNav = document.getElementById("mobileNav");
@@ -92,18 +87,20 @@ function onScroll() {
   }
   setActive(current);
 }
-
 window.addEventListener("scroll", onScroll, { passive: true });
 onScroll();
 
 // ==============================
-// Contact form -> send email via EmailJS
+// Contact form -> EmailJS
 // ==============================
 const contactForm = document.getElementById("contactForm");
 const formHint = document.getElementById("formHint");
 const submitBtn = document.getElementById("submitBtn");
 const submitText = document.getElementById("submitText");
 const submitLoader = document.getElementById("submitLoader");
+
+const SERVICE_ID = "service_n28xhz5";
+const TEMPLATE_ID = "template_f2utfep";
 
 function setSending(sending) {
   if (submitBtn) submitBtn.disabled = sending;
@@ -122,14 +119,27 @@ function validEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
+function ensureFormHasFields() {
+  const required = ["user_name", "user_email", "subject", "message"];
+  const missing = required.filter((n) => !contactForm?.querySelector(`[name="${n}"]`));
+  if (missing.length) {
+    console.error("[EmailJS] Missing form fields:", missing);
+    showHint("Form config error: missing fields. Check console.", false);
+    return false;
+  }
+  return true;
+}
+
 if (contactForm) {
   contactForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const name = String(contactForm.querySelector('input[name="user_name"]')?.value || "").trim();
-    const email = String(contactForm.querySelector('input[name="user_email"]')?.value || "").trim();
-    const subject = String(contactForm.querySelector('input[name="subject"]')?.value || "").trim();
-    const message = String(contactForm.querySelector('textarea[name="message"]')?.value || "").trim();
+    if (!ensureFormHasFields()) return;
+
+    const name = String(contactForm.querySelector('[name="user_name"]').value || "").trim();
+    const email = String(contactForm.querySelector('[name="user_email"]').value || "").trim();
+    const subject = String(contactForm.querySelector('[name="subject"]').value || "").trim();
+    const message = String(contactForm.querySelector('[name="message"]').value || "").trim();
 
     if (!name) return showHint("Please enter your name.", false);
     if (!email || !validEmail(email)) return showHint("Please enter a valid email.", false);
@@ -137,46 +147,44 @@ if (contactForm) {
     if (!message) return showHint("Please enter a message.", false);
 
     if (!window.emailjs) {
-      showHint("Email service not loaded. Please refresh and try again.", false);
-      return;
+      console.error("[EmailJS] Not available on window.");
+      return showHint("Email service not loaded. Please refresh.", false);
     }
 
     try {
       setSending(true);
       showHint("Sending your message…", true);
 
-      // Replace with your IDs
-      const SERVICE_ID = "service_n28xhz5";
-      const TEMPLATE_ID = "template_f2utfep";
+      // Debug log (safe — does not reveal secrets)
+      console.log("[EmailJS] Sending with:", { SERVICE_ID, TEMPLATE_ID, name, email, subject });
 
       const res = await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, contactForm);
+      console.log("[EmailJS] Response:", res);
 
       if (res?.status === 200) {
-        showHint("✅ Message sent! I'll reply soon.", true);
+        showHint("✅ Message sent! Check your inbox/spam.", true);
         contactForm.reset();
       } else {
         showHint("❌ Could not send. Please try again.", false);
       }
     } catch (err) {
-      console.error(err);
-      showHint("❌ Error sending. You can email me directly.", false);
+      console.error("[EmailJS] Error:", err);
+      // EmailJS errors often include: status, text
+      const msg = (err && (err.text || err.message)) ? (err.text || err.message) : "Unknown error";
+      showHint(`❌ Send failed: ${msg}`, false);
     } finally {
       setTimeout(() => setSending(false), 900);
     }
   });
 }
 
-// ==============================
-// Smooth scroll for anchor links
-// ==============================
+// Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach((a) => {
   a.addEventListener("click", (e) => {
     const href = a.getAttribute("href");
     if (!href || href === "#") return;
-
     const target = document.querySelector(href);
     if (!target) return;
-
     e.preventDefault();
     target.scrollIntoView({ behavior: "smooth", block: "start" });
   });
