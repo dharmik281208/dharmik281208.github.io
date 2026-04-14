@@ -1,5 +1,5 @@
 // ==============================
-// EmailJS init (your keys added)
+// EmailJS init (your keys)
 // ==============================
 (function initEmailJS() {
   if (!window.emailjs) {
@@ -7,10 +7,11 @@
     return;
   }
   emailjs.init("9RBr4vVjeyOXZPxS9");
-  console.log("[EmailJS] Initialized.");
 })();
 
+// ==============================
 // Footer year
+// ==============================
 const year = document.getElementById("year");
 if (year) year.textContent = new Date().getFullYear();
 
@@ -87,8 +88,30 @@ function onScroll() {
   }
   setActive(current);
 }
+
 window.addEventListener("scroll", onScroll, { passive: true });
 onScroll();
+
+// ==============================
+// Projects horizontal scroll controls
+// - ONLY arrow buttons
+// - No wheel scroll
+// - No drag scroll
+// - Clicking cards works normally
+// ==============================
+const projectsScroll = document.getElementById("projectsScroll");
+const projectsPrev = document.getElementById("projectsPrev");
+const projectsNext = document.getElementById("projectsNext");
+
+function scrollProjectsBy(delta) {
+  if (!projectsScroll) return;
+  projectsScroll.scrollBy({ left: delta, behavior: "smooth" });
+}
+
+if (projectsScroll) {
+  projectsPrev?.addEventListener("click", () => scrollProjectsBy(-560));
+  projectsNext?.addEventListener("click", () => scrollProjectsBy(560));
+}
 
 // ==============================
 // Contact form -> EmailJS
@@ -119,72 +142,54 @@ function validEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-function ensureFormHasFields() {
-  const required = ["user_name", "user_email", "subject", "message"];
-  const missing = required.filter((n) => !contactForm?.querySelector(`[name="${n}"]`));
-  if (missing.length) {
-    console.error("[EmailJS] Missing form fields:", missing);
-    showHint("Form config error: missing fields. Check console.", false);
-    return false;
-  }
-  return true;
-}
-
 if (contactForm) {
   contactForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    if (!ensureFormHasFields()) return;
-
-    const name = String(contactForm.querySelector('[name="user_name"]').value || "").trim();
-    const email = String(contactForm.querySelector('[name="user_email"]').value || "").trim();
-    const subject = String(contactForm.querySelector('[name="subject"]').value || "").trim();
-    const message = String(contactForm.querySelector('[name="message"]').value || "").trim();
+    const name = String(contactForm.querySelector('[name="user_name"]')?.value || "").trim();
+    const email = String(contactForm.querySelector('[name="user_email"]')?.value || "").trim();
+    const subject = String(contactForm.querySelector('[name="subject"]')?.value || "").trim();
+    const message = String(contactForm.querySelector('[name="message"]')?.value || "").trim();
 
     if (!name) return showHint("Please enter your name.", false);
     if (!email || !validEmail(email)) return showHint("Please enter a valid email.", false);
     if (!subject) return showHint("Please enter a project title.", false);
     if (!message) return showHint("Please enter a message.", false);
 
-    if (!window.emailjs) {
-      console.error("[EmailJS] Not available on window.");
-      return showHint("Email service not loaded. Please refresh.", false);
-    }
+    if (!window.emailjs) return showHint("Email service not loaded. Please refresh.", false);
 
     try {
       setSending(true);
       showHint("Sending your message…", true);
 
-      // Debug log (safe — does not reveal secrets)
-      console.log("[EmailJS] Sending with:", { SERVICE_ID, TEMPLATE_ID, name, email, subject });
-
       const res = await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, contactForm);
-      console.log("[EmailJS] Response:", res);
 
       if (res?.status === 200) {
-        showHint("✅ Message sent! Check your inbox/spam.", true);
+        showHint("✅ Message sent! Check Inbox/Spam.", true);
         contactForm.reset();
       } else {
         showHint("❌ Could not send. Please try again.", false);
       }
     } catch (err) {
       console.error("[EmailJS] Error:", err);
-      // EmailJS errors often include: status, text
-      const msg = (err && (err.text || err.message)) ? (err.text || err.message) : "Unknown error";
-      showHint(`❌ Send failed: ${msg}`, false);
+      showHint("❌ Error sending. Please try again.", false);
     } finally {
       setTimeout(() => setSending(false), 900);
     }
   });
 }
 
-// Smooth scroll
+// ==============================
+// Smooth scroll for anchor links
+// ==============================
 document.querySelectorAll('a[href^="#"]').forEach((a) => {
   a.addEventListener("click", (e) => {
     const href = a.getAttribute("href");
     if (!href || href === "#") return;
+
     const target = document.querySelector(href);
     if (!target) return;
+
     e.preventDefault();
     target.scrollIntoView({ behavior: "smooth", block: "start" });
   });
