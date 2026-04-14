@@ -9,12 +9,11 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="style.css" />
 
-  <!-- EmailJS (for contact form email delivery) -->
+  <!-- EmailJS -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 
 <body>
-  <!-- Animated gradient background -->
   <div class="bg-gradient"></div>
 
   <!-- Mobile menu backdrop -->
@@ -52,7 +51,7 @@
       </button>
     </div>
 
-    <!-- Mobile menu overlay -->
+    <!-- Mobile menu -->
     <div id="mobileNav" class="mobile-nav" hidden>
       <div class="mobile-nav-card">
         <a href="#home">Home</a>
@@ -64,7 +63,7 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section id="home" class="hero">
     <div class="container hero-wrapper">
       <div class="hero-content">
@@ -87,12 +86,11 @@
             </svg>
           </a>
           <a class="btn btn-secondary" href="#contact">Book a meeting</a>
-          <a class="btn btn-secondary" href="Dharmikcer.pdf" target="_blank" rel="noreferrer">Certificate</a>
         </div>
 
         <div class="hero-stats">
           <div class="stat-item">
-            <div class="stat-number">3+</div>
+            <div class="stat-number">4+</div>
             <div class="stat-label">Projects</div>
           </div>
           <div class="stat-item">
@@ -116,99 +114,105 @@
     </div>
   </section>
 
-  <!-- Projects Section -->
+  <!-- Projects (horizontal scroll) -->
   <section id="projects" class="section projects-section">
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">Featured Projects</h2>
-        <p class="section-subtitle">Robotics builds + AI systems + ethical security learning labs</p>
+        <p class="section-subtitle">Swipe/scroll horizontally to explore</p>
       </div>
 
-      <div class="projects-grid">
-        <!-- Project 1: Maze Solver -->
-        <a href="project-maze-solver.html" class="project-card">
-          <div class="project-image-box">
-            <div class="project-gradient grad-blue"></div>
-            <div class="project-icon">🤖</div>
-          </div>
+      <div class="projects-bar">
+        <button class="projects-arrow" id="projectsPrev" type="button" aria-label="Scroll projects left">‹</button>
 
-          <div class="project-info">
-            <h3>Maze Solver Robot</h3>
-            <p>Autonomous robot using sensors and pathfinding algorithms to solve mazes in real-time.</p>
-
-            <div class="project-tech-list">
-              <span class="tech-badge">Robotics</span>
-              <span class="tech-badge">Sensors</span>
-              <span class="tech-badge">Algorithms</span>
-              <span class="tech-badge">Fusion360</span>
+        <div class="projects-scroll" id="projectsScroll" tabindex="0" aria-label="Projects horizontal list">
+          <!-- Maze -->
+          <a href="project-maze-solver.html" class="project-card">
+            <div class="project-image-box">
+              <div class="project-gradient grad-blue"></div>
+              <div class="project-icon">🤖</div>
             </div>
-          </div>
-
-          <div class="project-footer">
-            <span class="view-more">View Details →</span>
-          </div>
-        </a>
-
-        <!-- Project 2: Autonomous Driving -->
-        <a href="project-autonomous-driving.html" class="project-card">
-          <div class="project-image-box">
-            <div class="project-gradient grad-purple"></div>
-            <div class="project-icon">🚗</div>
-          </div>
-
-          <div class="project-info">
-            <h3>AI Autonomous Driving Bot</h3>
-            <p>Computer vision + control logic for an autonomous driving bot built for learning and prototyping.</p>
-
-            <div class="project-tech-list">
-              <span class="tech-badge">OpenCV</span>
-              <span class="tech-badge">Python</span>
-              <span class="tech-badge">Computer Vision</span>
-              <span class="tech-badge">Raspberry Pi 5</span>
+            <div class="project-info">
+              <h3>Maze Solver Robot</h3>
+              <p>Autonomous robot using sensors + algorithms to solve mazes in real-time.</p>
+              <div class="project-tech-list">
+                <span class="tech-badge">Robotics</span>
+                <span class="tech-badge">Sensors</span>
+                <span class="tech-badge">Fusion360</span>
+                <span class="tech-badge">DSP</span>
+              </div>
             </div>
-          </div>
+            <div class="project-footer"><span class="view-more">View Details →</span></div>
+          </a>
 
-          <div class="project-footer">
-            <span class="view-more">View Details →</span>
-          </div>
-        </a>
-
-        <!-- Project 3: Option A -->
-        <a href="project-linux-nmap-wifi.html" class="project-card">
-          <div class="project-image-box">
-            <div class="project-gradient grad-orange"></div>
-            <div class="project-icon">🛡️</div>
-          </div>
-
-          <div class="project-info">
-            <h3>Linux + Nmap + WiFi Attacks (Lab Project)</h3>
-            <p>
-              Ethical learning lab covering Linux basics, network scanning with Nmap, and WiFi security concepts
-              (bruteforce + deauth) in a controlled environment.
-            </p>
-
-            <div class="project-tech-list">
-              <span class="tech-badge">Linux</span>
-              <span class="tech-badge">Nmap</span>
-              <span class="tech-badge">Wireless</span>
-              <span class="tech-badge">Ethical Lab</span>
+          <!-- Driving -->
+          <a href="project-autonomous-driving.html" class="project-card">
+            <div class="project-image-box">
+              <div class="project-gradient grad-purple"></div>
+              <div class="project-icon">🚗</div>
             </div>
-          </div>
+            <div class="project-info">
+              <h3>AI Autonomous Driving Bot</h3>
+              <p>OpenCV + Python vision pipeline with real-time control on Raspberry Pi 5.</p>
+              <div class="project-tech-list">
+                <span class="tech-badge">OpenCV</span>
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">Raspberry Pi 5</span>
+                <span class="tech-badge">CAD</span>
+              </div>
+            </div>
+            <div class="project-footer"><span class="view-more">View Details →</span></div>
+          </a>
 
-          <div class="project-footer">
-            <span class="view-more">View Details →</span>
-          </div>
-        </a>
+          <!-- Linux Lab -->
+          <a href="project-linux-nmap-wifi.html" class="project-card">
+            <div class="project-image-box">
+              <div class="project-gradient grad-orange"></div>
+              <div class="project-icon">🛡️</div>
+            </div>
+            <div class="project-info">
+              <h3>Linux + Nmap + WiFi Attacks (Lab)</h3>
+              <p>Ethical lab: Linux fundamentals, Nmap recon, and WiFi security concepts in a controlled setup.</p>
+              <div class="project-tech-list">
+                <span class="tech-badge">Linux</span>
+                <span class="tech-badge">Nmap</span>
+                <span class="tech-badge">Wireless</span>
+                <span class="tech-badge">Ethical</span>
+              </div>
+            </div>
+            <div class="project-footer"><span class="view-more">View Details →</span></div>
+          </a>
+
+          <!-- e-Yantra -->
+          <a href="project-eyantra-cropdrop.html" class="project-card">
+            <div class="project-image-box">
+              <div class="project-gradient grad-purple"></div>
+              <div class="project-icon">🌾</div>
+            </div>
+            <div class="project-info">
+              <h3>e‑Yantra CropDrop Bot Prototype</h3>
+              <p>Dual track navigation, Q‑Learning route optimization, PID precision, crate pick/drop workflow.</p>
+              <div class="project-tech-list">
+                <span class="tech-badge">Q‑Learning</span>
+                <span class="tech-badge">PID</span>
+                <span class="tech-badge">STM32</span>
+                <span class="tech-badge">Sensors</span>
+              </div>
+            </div>
+            <div class="project-footer"><span class="view-more">View Details →</span></div>
+          </a>
+        </div>
+
+        <button class="projects-arrow" id="projectsNext" type="button" aria-label="Scroll projects right">›</button>
       </div>
+
     </div>
   </section>
 
-  <!-- About Section -->
+  <!-- About -->
   <section id="about" class="section about-section">
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">About Me</h2>
-      </div>
+      <div class="section-header"><h2 class="section-title">About Me</h2></div>
 
       <div class="about-grid">
         <div class="about-content">
@@ -216,29 +220,18 @@
             I'm <strong>Dharmik Suhagiya</strong>, focused on AI, robotics, and cybersecurity learning. I enjoy
             building systems that move, see, and decide — and I document security concepts ethically through labs.
           </p>
-
           <p class="about-text">
             My goal is to continuously improve fundamentals (Linux, networking, sensors, CAD, computer vision),
             and ship real projects with clean documentation.
           </p>
 
           <div class="about-stats">
-            <div class="stat-box">
-              <div class="stat-number">150+</div>
-              <div class="stat-label">Hours Learning</div>
-            </div>
-            <div class="stat-box">
-              <div class="stat-number">3+</div>
-              <div class="stat-label">Projects</div>
-            </div>
-            <div class="stat-box">
-              <div class="stat-number">100%</div>
-              <div class="stat-label">Commitment</div>
-            </div>
+            <div class="stat-box"><div class="stat-number">150+</div><div class="stat-label">Hours Learning</div></div>
+            <div class="stat-box"><div class="stat-number">4+</div><div class="stat-label">Projects</div></div>
+            <div class="stat-box"><div class="stat-number">100%</div><div class="stat-label">Commitment</div></div>
           </div>
 
           <div class="cta-group">
-            <a href="Dharmikcer.pdf" target="_blank" rel="noreferrer" class="btn btn-primary">Download Certificate</a>
             <a href="#contact" class="btn btn-secondary">Get in touch</a>
           </div>
         </div>
@@ -253,7 +246,7 @@
     </div>
   </section>
 
-  <!-- Services Section -->
+  <!-- Services -->
   <section id="services" class="section services-section">
     <div class="container">
       <div class="section-header">
@@ -281,12 +274,6 @@
         </div>
 
         <div class="service-card">
-          <div class="service-icon">🧩</div>
-          <h3>Automation Scripts</h3>
-          <p>Small tools and scripts to speed up workflows and make projects easier to manage.</p>
-        </div>
-
-        <div class="service-card">
           <div class="service-icon">📦</div>
           <h3>Documentation</h3>
           <p>Clear write-ups: what I built, why it works, and how to reproduce safely.</p>
@@ -297,11 +284,17 @@
           <h3>R&D Support</h3>
           <p>Rapid prototyping support for students and early-stage builds.</p>
         </div>
+
+        <div class="service-card">
+          <div class="service-icon">🧩</div>
+          <h3>Automation Scripts</h3>
+          <p>Small tools and scripts to speed up workflows and make projects easier to manage.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
+  <!-- Contact -->
   <section id="contact" class="section contact-section">
     <div class="container">
       <div class="section-header">
@@ -368,6 +361,6 @@
     </div>
   </footer>
 
-  <script src="js/script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
