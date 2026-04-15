@@ -6,7 +6,7 @@
     console.error("[EmailJS] Library not loaded. Check index.html script tag.");
     return;
   }
-  emailjs.init("9RBr4vVjeyOXZPxS9");
+  emailjs.init("9RBr4vVjeyOXZPxS9"); // Public key
 })();
 
 // ==============================
@@ -93,11 +93,7 @@ window.addEventListener("scroll", onScroll, { passive: true });
 onScroll();
 
 // ==============================
-// Projects horizontal scroll controls
-// - ONLY arrow buttons
-// - No wheel scroll
-// - No drag scroll
-// - Clicking cards works normally
+// Projects arrows (buttons only)
 // ==============================
 const projectsScroll = document.getElementById("projectsScroll");
 const projectsPrev = document.getElementById("projectsPrev");
@@ -142,14 +138,27 @@ function validEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
+function verifyFormFields(form) {
+  const required = ["user_name", "user_email", "subject", "message"];
+  const missing = required.filter((n) => !form.querySelector(`[name="${n}"]`));
+  if (missing.length) {
+    console.error("[EmailJS] Missing input names:", missing);
+    showHint("Form error: missing fields. Check console.", false);
+    return false;
+  }
+  return true;
+}
+
 if (contactForm) {
   contactForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const name = String(contactForm.querySelector('[name="user_name"]')?.value || "").trim();
-    const email = String(contactForm.querySelector('[name="user_email"]')?.value || "").trim();
-    const subject = String(contactForm.querySelector('[name="subject"]')?.value || "").trim();
-    const message = String(contactForm.querySelector('[name="message"]')?.value || "").trim();
+    if (!verifyFormFields(contactForm)) return;
+
+    const name = String(contactForm.querySelector('[name="user_name"]').value || "").trim();
+    const email = String(contactForm.querySelector('[name="user_email"]').value || "").trim();
+    const subject = String(contactForm.querySelector('[name="subject"]').value || "").trim();
+    const message = String(contactForm.querySelector('[name="message"]').value || "").trim();
 
     if (!name) return showHint("Please enter your name.", false);
     if (!email || !validEmail(email)) return showHint("Please enter a valid email.", false);
@@ -160,19 +169,21 @@ if (contactForm) {
 
     try {
       setSending(true);
-      showHint("Sending your message…", true);
 
       const res = await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, contactForm);
 
-      if (res?.status === 200) {
-        showHint("✅ Message sent! Check Inbox/Spam.", true);
+      if (res && res.status === 200) {
+        // ✅ Removed success message (as requested)
+        // showHint("✅ Message sent! Check Inbox/Spam.", true);
         contactForm.reset();
+        if (formHint) formHint.textContent = "";
       } else {
-        showHint("❌ Could not send. Please try again.", false);
+        showHint("❌ Failed to send. Try again.", false);
       }
     } catch (err) {
-      console.error("[EmailJS] Error:", err);
-      showHint("❌ Error sending. Please try again.", false);
+      console.error("[EmailJS] sendForm error:", err);
+      const msg = err?.text || err?.message || "Unknown error";
+      showHint(`❌ Error: ${msg}`, false);
     } finally {
       setTimeout(() => setSending(false), 900);
     }
